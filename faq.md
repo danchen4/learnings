@@ -111,6 +111,19 @@ console.log(i);
 
 1.  Primitive type (string, number, etc.) are passed by value and objects are passed by reference.
 2.  If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.
+    (passes Copy of a reference)
+
+var obj = {
+a: "hello"
+};
+
+function modify(o) {
+o = {
+a: "fuck off"
+};
+}
+
+console.log(o.a) //'hello'
 
 # display: none vs visibility: hidden
 
@@ -146,3 +159,14 @@ Four levels: inline styles, IDs, classes / attributes (.classes, [input], :hover
 
 [role=navigation] > ul a:not([href^=mailto]) {}
 This selects anchor links that are not email links that are decedents of an unordered list that is the direct child of any element with a role attribute of 'navigation'. this answer copied from
+
+# 'this'
+
+46_DynamicvsLexicalScope.html
+
+# Closures
+
+Benefits of closure
+
+1. Memory efficient
+2. Encapsulation (Keeping data private)
