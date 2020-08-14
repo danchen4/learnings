@@ -12,3 +12,15 @@ HTTP (application protocol)
 TCP (breaks down to packets and determines port)
 IP ()
 Link (Hardware)
+
+AJAX - a way of using HTTP to asynchronously request and receive data from servers
+REST (Representational State Transfer) - more or less a standardized way for using HTTP. Typically setup on server-side.
+
+REST was created more or less because AJAX made a mess of things.
+
+Instead of using gazillions of different methods with AJAX
+
+- use the methods available in HTTP protocol (GET, POST, PUT, DELETE)
+- use the HTTP status code to signal various errors
+- Server and client are stateless (doesn't store previously transmitted data)
+- Structure data as resources vai an URL
