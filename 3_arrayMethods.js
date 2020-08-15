@@ -12,7 +12,6 @@ var arr = ['biggy smalls', 'bif tannin', 'boo radley', 'hans gruber'];
 
 // Answer
 // #region
-
 Array.prototype.myReduce = function (callback, initialValue) {
   let accumulator = initialValue;
 
@@ -36,7 +35,7 @@ console.log(arr.myReduce((a, b) => `${a}, ${b}`, 'start'));
 // #region
 Array.prototype.myForEach = function (callback, context = null) {
   for (let i = 0; i < this.length; i++) {
-    callbackcall(context, this[i], i, this);
+    callback.call(context, this[i], i, this);
   }
 };
 // #endregion

@@ -170,3 +170,9 @@ Benefits of closure
 
 1. Memory efficient
 2. Encapsulation (Keeping data private)
+
+# <style> in <head>
+
+According to current specs, <style> must always be in <head>
+
+If <style> is in <body>, then browser would get elements that are styled after displayed (flash of unstyled content)

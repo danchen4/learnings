@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-size: 16px;
+      }
+
+      body {
+        font-family: Helvetica;
+        padding: 25px;
+        text-align: center;
+      }
+
+      section {
+        margin-top: 80px;
+      }
+
+      h1 {
+        font-size: 2em;
+        font-weight: 800;
+      }
+
+      div {
+        margin: 30px 0;
+        background: lavender;
+        /* overflow: auto; */
+      }
+
+      p {
+        margin: 5px 0 15px 0;
+        background: yellow;
+      }
+
+      ol {
+        display: inline-block;
+      }
+
+      li {
+        text-align: left;
+      }
+
+      /* Add overflow: auto to parent */
+      .overflow {
+        overflow: auto;
+      }
+
+      /* Add padding to the parent */
+      .padding {
+        padding: 1px 0;
+      }
+
+      /* Add border to the parent */
+      .border {
+        border: 1px solid black;
+      }
+
+      /* Adding display: inline-block */
+      .inline-block {
+        display: inline-block;
+      }
+
+      /* Here come the children */
+      .red {
+        background-color: #ff6b6b;
+      }
+
+      .orange {
+        background-color: #ff9e2c;
+      }
+
+      .yellow {
+        background-color: #eeee78;
+      }
+
+      .green {
+        background-color: #4ecd9d;
+      }
+
+      .blue {
+        background-color: #4e97cd;
+      }
+
+      .purple {
+        background-color: #6c4ecd;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Three cases:</h1>
+    <ol>
+      <li>Adjacent Siblings</li>
+      <li>
+        No content separating parent and descendants. No border, padding, inline part, BFC created
+        or clearance
+      </li>
+      <li>Empty Blocks</li>
+    </ol>
+
+    <section>
+      <h1>Adjacent Siblings</h1>
+      <p>The bottom margin of <b>5px</b> of this paragraph is collapsed …</p>
+      <p>
+        … with the <b>15px </b>top margin of this paragraph, yielding a margin of <b>15px</b> in
+        between. Also, bottom margin of <b>15px</b> of this paragraph is collapsed ...
+      </p>
+
+      <div>with the <b>30px</b> top margin of this div.</div>
+
+      <p>
+        The <b>5px</b> top margin of this paragraph is collapsed with the <b>30px</b> bottom margin
+        of div, yielding margin of <b>30px</b> in between.
+      </p>
+    </section>
+
+    <section>
+      <h1>When Parents Ground Their Children</h1>
+      <h3>No padding or border</h3>
+
+      <div class="red">
+        <div class="orange">
+          <div class="yellow">
+            <div class="green">
+              <div class="blue">
+                <div class="purple">Collapsed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Adding padding or border between parent and child. Notice how 'green', 'blue' and 'purple'
+        are still collapsed
+      </h3>
+      <div class="padding red">
+        <div class="padding orange">
+          <div class="border yellow">
+            <div class="green">
+              <div class="blue">
+                <div class="purple">Collapsed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Adding overflow: auto (i.e. creating new BFC)
+      </h3>
+      <div class="overflow red">
+        <div class="overflow orange">
+          <div class="overflow yellow">
+            <div class="green">
+              <div class="blue">
+                <div class="purple">Collapsed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Adding display: inline-block (or inline)
+      </h3>
+      <div class="inline-block red">
+        <div class="inline-block orange">
+          <div class="inline-block yellow">
+            <div class="green">
+              <div class="blue">
+                <div class="purple">Collapsed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
