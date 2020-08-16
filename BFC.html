@@ -63,6 +63,12 @@
         display: inline-block;
       }
 
+      /* Adding display: flex */
+      .flex {
+        display: flex;
+        justify-content: center;
+      }
+
       /* Here come the children */
       .red {
         background-color: #ff6b6b;
@@ -96,7 +102,7 @@
       <li>Adjacent Siblings</li>
       <li>
         No content separating parent and descendants. No border, padding, inline part, BFC created
-        or clearance
+        or clearance. Collapsed margin ends up <b>outside</b> the parent.
       </li>
       <li>Empty Blocks</li>
     </ol>
@@ -170,6 +176,21 @@
       <div class="inline-block red">
         <div class="inline-block orange">
           <div class="inline-block yellow">
+            <div class="green">
+              <div class="blue">
+                <div class="purple">Collapsed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3>
+        Adding display: flex. Flex is on red div, but also affects immediate child (orange div)
+      </h3>
+      <div class="flex red">
+        <div class="orange">
+          <div class="yellow">
             <div class="green">
               <div class="blue">
                 <div class="purple">Collapsed</div>
