@@ -43,3 +43,8 @@ Sets up channel of communication with github
 git push -u origin master
 **-u** to set the upstream (to origin)
 push commits to remote name of origin to Master branch
+
+# Contributing
+
+1.  Go to CONTRIBUTING.md (if it exists);
+2.  Open an issue (with title and comments) and submit. Maintainer will get an email.

@@ -14,4 +14,9 @@ dataset.list-size = 5;
 
 # HTML5 vs HTML4
 
+1. No media API elements <canvas>, <video>, <audio>
+2. New semantics - <article>, <section>, <header>, <footer>, <nav>
+3. Many new intput attributes - email, url, date, time
+4. New attributes - charset, async
+
 # making a nav bar
