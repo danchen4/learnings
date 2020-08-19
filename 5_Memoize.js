@@ -1,5 +1,15 @@
 // Memoize any function
 
+function memoize(callback) {
+  let cache = {};
+  return function (...args) {
+    if (cache[args]) {
+      return cache[args];
+    } else {
+    }
+  };
+}
+
 // Answer
 //#region
 function Memoize(func) {

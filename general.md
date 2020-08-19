@@ -6,3 +6,9 @@
 4.  Function Composition - combining multiple functions to create new functions
 5.  No Side Effects - not modifying any external variable or object property
 6.  Declarative
+
+# MVC
+
+Model - data
+View - visual representation
+Controller - Liasan between model and view (URL request or API request)

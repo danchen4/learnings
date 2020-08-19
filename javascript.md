@@ -8,6 +8,8 @@
 
 Function always remembers the lexical environment in which it is created (or declared).
 
+Environment consists of any local variables that were in-scope at the time the closure was created
+
 Closure gives you acces to outer functions' scope from inner function
 
 # Lexical Scope
@@ -51,3 +53,13 @@ console.log(a); // 1
 - Hoisting
 
 2.  Execution Phase
+
+# Capturing and Bubbling
+
+3 phases of event propogation
+
+1. Capturing phase - event goes down to element
+2. Target phase - event reaches target element
+3. Bubbling phase - event bubbles up from element
+
+When event happens, calls handler on target, then on parent, all the way up to root.
