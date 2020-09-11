@@ -1,0 +1,71 @@
+.arrow {
+  font-size: 50px;
+  line-height: 40px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.arrow:hover {
+  color: #121212;
+  background: white;
+  cursor: pointer;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.carousel > img {
+  width: 100%;
+  height: 450px;
+  border-radius: 4px;
+}
+
+.d-none {
+  display: none;
+}
+
+.indicators {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  margin-bottom: 20px;
+}
+
+.indicators > span {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background: white;
+}
+
+.indicators > span.active {
+  background: #4fc355;
+}

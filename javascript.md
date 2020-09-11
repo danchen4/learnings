@@ -1,3 +1,24 @@
+## &&, ||
+
+The && or Logical AND operator finds the first falsy expression in its operands and returns it and if it does not find any falsy expression it returns the last expression.
+
+The || or Logical OR operator finds the first truthy expression in its operands and returns it.
+
+## !!
+
+Coerces value into boolean
+
+console.log(!!null); //false
+console.log(!!undefined); //alse
+console.log(!!''); //false
+console.log(!!0); //false
+console.log(!!NaN); //false
+console.log(!!' '); //true
+console.log(!!{}); //true
+console.log(!![]); //true
+console.log(!!1); //true
+console.log(!![].length); //false
+
 # innerHTML vs textContent
 
 # appendChild
@@ -12,13 +33,27 @@ Environment consists of any local variables that were in-scope at the time the c
 
 Closure gives you acces to outer functions' scope from inner function
 
-# Lexical Scope
+# Scope
+
+The area where we have valid access to variables or functions
+Three types:
+
+1. Global
+2. Functional
+3. Block
 
 Available data + variables based on where the function was written.
 
 Lexical Environemnt == [[scope]]
 
 - in Chrome, there is [[Scopes]] property pointing to outside lexical environment
+
+# Scope Chain
+
+1.  If variable does not exist in current scope, look up variable in outer scope
+    Stop if:
+1.  You reach the global scope (if it doesn't exist, throw an error)
+1.  You find the variable
 
 # Hoisting
 
@@ -58,8 +93,16 @@ console.log(a); // 1
 
 3 phases of event propogation
 
-1. Capturing phase - event goes down to element
+1. Capturing phase - event goes from window down to element
 2. Target phase - event reaches target element
-3. Bubbling phase - event bubbles up from element
+3. Bubbling phase - event bubbles up from element to window
 
 When event happens, calls handler on target, then on parent, all the way up to root.
+
+# Falsy values
+
+const falsyValues = ['', 0, null, undefined, NaN, false];
+
+# Other
+
+- Properties that don't exist in an object or it's prototype has default value of undefined.

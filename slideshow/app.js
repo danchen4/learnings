@@ -6,7 +6,8 @@
   let slideShowInterval, dots, imageArray;
 
   const INTERVAL = 3000;
-  const MAX_SLIDES = 6;
+  const MAX_SLIDES = 10;
+  const URL = 'https://www.reddit.com/r/aww/top/.json?t=all';
 
   async function initCarousel() {
     imageArray = await loadImages();
@@ -18,8 +19,21 @@
     // Set first image and first dot styling
     dots = document.querySelectorAll('.dot');
     dots[slideIndex].classList.add('active');
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
     slide.src = imageArray[slideIndex];
 
+    slideShowInterval = setInterval(nextSlide, INTERVAL);
+  }
+
+  function goToSlide(index) {
+    clearInterval(slideShowInterval);
+    dots[slideIndex].classList.remove('active');
+    slideIndex = index;
+    dots[index].classList.add('active');
+    slide.src = imageArray[index];
     slideShowInterval = setInterval(nextSlide, INTERVAL);
   }
 
@@ -57,7 +71,6 @@
 
   // fetch images from API endpoint and return an array with image URLs
   async function loadImages() {
-    const URL = 'https://www.reddit.com/r/aww/top/.json?t=all';
     const imageArray = [];
 
     const response = await fetch(URL);

@@ -13,10 +13,13 @@ var arr = ['biggy smalls', 'bif tannin', 'boo radley', 'hans gruber'];
 // Answer
 // #region
 Array.prototype.myReduce = function (callback, initialValue) {
-  let accumulator = initialValue;
+  let accumulator = initialValue === undefined ? undefined : initialValue;
+
+  // Check to see paremeteres are correct
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') return [];
 
   for (let i = 0; i < this.length; i++) {
-    if (accumulator) {
+    if (accumulator !== undefined) {
       accumulator = callback(accumulator, this[i], i, this);
     } else {
       accumulator = this[i];
@@ -34,6 +37,9 @@ console.log(arr.myReduce((a, b) => `${a}, ${b}`, 'start'));
 // Answer
 // #region
 Array.prototype.myForEach = function (callback, context = null) {
+  // Check to see paremeteres are correct
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') return [];
+
   for (let i = 0; i < this.length; i++) {
     callback.call(context, this[i], i, this);
   }
@@ -47,6 +53,9 @@ console.log(arr.myForEach((item) => console.log(item)));
 // Answer
 // #region
 Array.prototype.myMap = function (callback, context = null) {
+  // Check to see paremeteres are correct
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') return [];
+
   let arr = [];
 
   for (let i = 0; i < this.length; i++) {
@@ -64,6 +73,9 @@ console.log(arr.myMap((item) => item + 'MAPS'));
 // Answer
 // #region
 Array.prototype.myFilter = function (callback, context = null) {
+  // Check to see paremeteres are correct
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') return [];
+
   let arr = [];
 
   for (let i = 0; i < this.length; i++) {
@@ -81,6 +93,9 @@ Array.prototype.myFilter = function (callback, context = null) {
 //Answer
 // #region
 Array.prototype.mySome = function (callback, context = null) {
+  // Check to see paremeteres are correct
+  if (!Array.isArray(this) || !this.length || typeof callback !== 'function') return [];
+
   for (let i = 0; i < this.length; i++) {
     if (callback.call(context, this[i], i, this)) {
       return true;
