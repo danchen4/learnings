@@ -6,4 +6,4 @@ function myFunc() {
 myFunc();
 
 // Since b is not declared, JS makes global variable b
-// a gets assigned (b = 0 ), or a = 0;
+// a gets assigned (b = 0), or a = 0;

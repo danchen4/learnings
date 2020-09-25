@@ -30,4 +30,4 @@ const iterate = (obj) => {
 };
 //#endregion
 
-// iterate2(testObj);
+// print(astestObj);

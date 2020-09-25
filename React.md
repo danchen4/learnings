@@ -2,21 +2,26 @@
 
 The object representation of React Element would be as follows:
 
+```
 const element = React.createElement(
-'div',
-{id: 'login-btn'},
-'Login'
+  'div',
+  {id: 'login-btn'},
+  'Login'
 )
+```
 
 The above React.createElement() function returns an object:
+
+```
 Returns an object
 {
 type: 'div',
-props: {
-children: 'Login',
-id: 'login-btn'
+  props: {
+    children: 'Login',
+    id: 'login-btn'
+  }
 }
-}
+```
 
 And finally it renders to the DOM using ReactDOM.render():
 
@@ -24,8 +29,8 @@ And finally it renders to the DOM using ReactDOM.render():
 
 # State
 
-Sources of data for Components
-Objects resonsible for determining component behavior and rendering
+1. Sources of data for Components that persists between renders
+2. Objects resonsible for determining component behavior and rendering
 
 ## Virtual DOM
 
@@ -42,33 +47,36 @@ In memory object representation of real DOM.
 
 ## Component Life Cycle
 
-Three distinct phases
+Three distinct lifecycles:
 
 1.  Mounting
+
+- Render Phase
+
+  1. function body executes
+  2. return ()
+
+- Commit Phase
+  1. React updates DOM and refs
+  2. useEffect(), useLayoutEffect()
+
 2.  Updating
+
+- Render Phase
+  1. useState(), useReducer(), useContext()
+- Commit Phase
+  1. React updates DOM and refs
+  2. useEffect(), useLayoutEffect()
+
 3.  UnMounting
+
+- Render Phase
+  1. nothing
+- Commit Phase
+  1. useEffect(), useLayoutEffect()
 
 Function Component Diagram
 https://github.com/Wavez/react-hooks-lifecycle
-
-Internally, React has concept of phase
-
-1.  Render - component will render without any side-effects
-2.  Pre-commit
-3.  Commit
-
-Boils down to
-
-1.  Function() {} (function body is executed)
-2.  Return ()
-3.  React updates DOM and refs
-4.  Side effects (useEffect(), useLayoutEffect)
-
-Update
-
-1.  useState(), useReducer(), useContext()
-2.  React updates DOM and refs
-3.  Side effects (useEffect(), useLayoutEffect)
 
 ## Create React App (CRA)
 
@@ -105,11 +113,24 @@ Cases when you need to keep one instance of a function:
 1. A component wrapped inside React.memo() and accepts a callback prop
 2. When the function is used as a dependency to other hooks, e.g. useEffect(..., [callback])
 
+# Controlled vs Uncontrolled
+
+Controlled
+
+1.  Don't maintain own state
+2.  Data controlled by parent component
+3.  Current value from props and notify changes via callback
+
+Uncontrolled
+
+1. Maintain own state
+2. Data controlled by DOM
+3. Refs used to get current values
+
 # Flux
 
-Flux is an application design paradigm
-
-Unidirectional Data Flow
+1. Flux is an application design paradigm with unidirectional Data Flow
+2. Controls derived data and enables communication between multiple components using central Store
 
 # Redux
 
@@ -118,3 +139,33 @@ Core principals
 1. Single source of truth
 2. State is read-only (need to emit actions)
 3. Changes are made with pure functions (aka reducers)
+
+Reducers are pure functions that take in the previous state and action, and then it returns a new state.
+
+Simple store:
+
+```
+const createStore = (reducer) => {
+  let state;
+  let listeners = [];
+
+  const getState = () => state;
+
+  const dispatch = (action) => {
+    state = reducer(state, action);
+    listeners.forEach(listener => listener());
+  };
+
+  const subscribe = (listener) => {
+    listeners.push(listener);
+    return () => {
+      listeners = listeners.filter(l => l !== listener);
+    }
+  };
+
+  dispatch({}); // dummy dispatch
+
+  return { getState, dispatch, subscribe };
+
+};
+```

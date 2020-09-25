@@ -49,3 +49,18 @@ function add(...args) {
   };
 }
 // #endregion
+
+// 5.  sum(2,3) same as sum(2)(3);
+
+// Answer
+// #region
+function sum(x, y) {
+  if (y !== undefined) {
+    return x + y;
+  } else {
+    return function (y) {
+      return x + y;
+    };
+  }
+}
+//#endregion

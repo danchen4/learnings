@@ -23,4 +23,4 @@ Instead of using gazillions of different methods with AJAX
 - use the methods available in HTTP protocol (GET, POST, PUT, DELETE)
 - use the HTTP status code to signal various errors
 - Server and client are stateless (doesn't store previously transmitted data)
-- Structure data as resources vai an URL
+- Structure data as resources via an URL

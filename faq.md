@@ -28,49 +28,6 @@ Capture: Goes from Window -> document -> HTML tag -> body -> element
 Target: Goes to lowest level element and checks if there is an event handler
 Bubbling: Handler runs on target, then browser will continue moving up elements and executing handlers (if they exist) until it reaches the root
 
-# Reflow
-
-Generally, when you change the size or position of an element, all the elements after it will also need to change their position / size, which will cause a reflow
-
-- Reflow is bad;
-
-Avoiding reflow:
-
-- Change layout (geometry of page)
-- Change width/height of an element
-- Changing font / font size
-
-# Repaint
-
-When changing look, without change size or position (background color, text color, visibility: hidden)
-
-# DOM ready / Async / Defer
-
-Normally, wihtout async/defer script tag, parser will pause parsing, script would be downloaded and exectuted. After that parsing resume.
-
-- 'script defer' - executes when DOM is ready, but before DOMContentLoaded
-- 'script async' - script is completely independent. Page doesn't wait for async scripts and script doesn't wait for page.
-
-document.addEventListener('DOMContentLoaded', func);
-
-document.onreadystatechange = function () {  
- if (document.readyState == "complete") {
-//put your script here
-}
-}
-
-# DOM
-
-DOM is hierarchy of nodes
-Element is a type of node. There are other nodes: text, comment, document
-
-# window vs document
-
-Window is Javascript's global object in a browser. Document is property of window object.
-
-window.onload = when DOM is ready and all contents (images, css, scripts) are finished loading
-document.onload = DOM is ready, but can be ready before other content has loaded (images, scripts, etc.)
-
 # undeclared, undefined, null
 
 Undeclared: variable has not been declared previously
@@ -110,10 +67,10 @@ console.log(i);
 # Pass by value or by reference
 
 1.  Primitive type (string, number, etc.) are passed by value and objects are passed by reference.
-2.  If you change a property of the passed object, the change will be affected. However, you assign a new object to the passed object, the changes will not be reflected.
+2.  If you change a property of the passed object, the change will be affected. However, if you assign a new object to the passed object, the changes will not be reflected.
     (passes Copy of a reference)
 
-var obj = {
+var o = {
 a: "hello"
 };
 
@@ -123,11 +80,12 @@ a: "fuck off"
 };
 }
 
+modfify(o)
 console.log(o.a) //'hello'
 
 # display: none vs visibility: hidden
 
-Display removes document from flow (and from rendering tree).
+Display:none removes document from flow (and from rendering tree).
 Visiblity: hidden tag is rendered, takes space in normal flow but doesn't show it.
 
 # inline, inline-block, block;
@@ -145,7 +103,7 @@ Everything in a web page is a box where you can control size, position, backgrou
 
 pseudo elements generates content where as pseudo class deals with state of the element
 
-**pseudo class** tells you specific state of an element. allow to style element dynamically.
+**pseudo class** tells you specific state of an element. Allows to style element dynamically.
 Examples - :hover, :visited, :focus, :nth-child, nth-of-type, :link, etc.
 
 **pseudo elements** helps you add cosmetic content.

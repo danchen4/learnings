@@ -1,3 +1,14 @@
+// Benefits of closure
+// 1.  Memory efficient
+// 2.  Encapsulation
+
+// Explanation of Closure
+// Definition:  A closure is an inner function that has access to the variables in the outer (enclosing) function’s scope chain.
+// Closure has access to variables in three scopes:
+// 1. variable in its own scope
+// 2. variables in the enclosing function's scope
+// 3. global variables
+
 // Source: https://dev.to/macmacky/70-javascript-interview-questions-5gfi#2-what-does-the-ampamp-operator-do
 // Example 1
 

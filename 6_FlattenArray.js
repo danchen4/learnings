@@ -1,17 +1,6 @@
 let array = [1, 2, [3, 4, [5, 6], 7], 8, [9, [10, 11]]];
 // Required output: [1,2,3,4,5,6,7,8,9,10,11]
 
-function flatten(array, flat = []) {
-  for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      flatten(array[i], flat);
-    } else {
-      flat.push(array[i]);
-    }
-  }
-  return flat;
-}
-
 // Answer
 //#region
 function flat1(arr, flatArray = []) {

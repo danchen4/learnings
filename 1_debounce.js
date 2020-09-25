@@ -6,8 +6,7 @@
 function debounce(callback, wait = 200, immediate = true) {
   let timeout;
   return function (...args) {
-    // If callback has 'this' in it, then you need to preserve 'this' via closure when
-    // it's executed after setTimeout
+    // If callback has 'this' in it, then you need to preserve 'this' via closure when it's executed after setTimeout
     const context = this;
 
     const later = () => {
