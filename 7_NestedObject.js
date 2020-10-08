@@ -18,6 +18,15 @@ const testObj = {
 
 // Iterating though nested objects and listing all the key value pairs
 
+function printObj(obj) {
+  for (let [key, value] of Object.entries(obj)) {
+    console.log(`key: ${key}, value: ${value}`);
+    if (typeof value === 'object') {
+      printObj(value);
+    }
+  }
+}
+
 // Answer
 //#region
 const iterate = (obj) => {
@@ -30,4 +39,4 @@ const iterate = (obj) => {
 };
 //#endregion
 
-// print(astestObj);
+console.log(Object.entries(testObj));

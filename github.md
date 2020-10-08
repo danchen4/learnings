@@ -1,3 +1,21 @@
+# How git works
+
+https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
+
+1.  Files are either Untracked or Tracked
+2.  use 'git add' to Staged (a staged file is ready to commit) Untracked files
+3.  Tracked files that have just been committed are Unmodified
+4.  After editing a Tracked file, it will automatically be moved to Modified
+5.  In order to move a Modified file to Staged, use 'git add'
+
+- 'git add is a multipurpose command
+- you use it to begin tracking new files, to stage files, and to do other things like marking merge-conflicted files as resolved.
+- It may be helpful to think of it more as “add precisely this content to the next commit”
+
+6.  In order to get a Snapshot (which is done throught a Commit) it needs to be Staged first
+
+- You can have the same file Staged and not Staged. When you Commit, it will commit the version that was staged (aka the one that was 'git add')
+
 # Contributing to project
 
 1. Fork
@@ -48,3 +66,10 @@ push commits to remote name of origin to Master branch
 
 1.  Go to CONTRIBUTING.md (if it exists);
 2.  Open an issue (with title and comments) and submit. Maintainer will get an email.
+
+# Flow
+
+1. Branch
+2. Add (stage changes) / Commit
+3. Open pull request
+4.

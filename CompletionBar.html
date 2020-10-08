@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .bar {
+        width: 200px;
+        height: 20px;
+        border: 1px solid black;
+      }
+
+      .completion {
+        height: 100%;
+        width: 0%;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <div class="completion"></div>
+    </div>
+    <div class="completion-text"></div>
+  </body>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const completion = document.querySelector('.completion');
+      const completionText = document.querySelector('.completion-text');
+      let completionRate = 0;
+      const rate = 1;
+
+      const interval = setInterval(showProgress, 100);
+
+      function showProgress() {
+        if (completionRate === 100) return clearInterval(interval);
+
+        completionRate += rate;
+
+        completion.style.width = `${completionRate}%`;
+        completionText.innerHTML = `${completionRate}%`;
+      }
+    });
+  </script>
+</html>

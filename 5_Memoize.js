@@ -3,20 +3,6 @@
 // Memoize fib function
 // Run the memoized fib and dtermine start and end time
 
-let start = new Date();
-console.log(fib(40));
-let end = new Date();
-let time = (end.getTime() - start.getTime()) / 1000;
-console.log(`Non memoized time: ${time} seconds`);
-
-fib = memoize(fib);
-
-start = new Date();
-console.log(fib(40));
-end = new Date();
-time = (end.getTime() - start.getTime()) / 1000;
-console.log(`Memoized time: ${time} seconds`);
-
 // Answer
 //#region
 function Memoize(func) {
@@ -32,3 +18,18 @@ function Memoize(func) {
   };
 }
 //#endregion
+
+// Test
+let start = new Date();
+console.log(fib(40));
+let end = new Date();
+let time = (end.getTime() - start.getTime()) / 1000;
+console.log(`Non memoized time: ${time} seconds`);
+
+fib = memoize(fib);
+
+start = new Date();
+console.log(fib(40));
+end = new Date();
+time = (end.getTime() - start.getTime()) / 1000;
+console.log(`Memoized time: ${time} seconds`);

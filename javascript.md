@@ -25,14 +25,6 @@ console.log(!![].length); //false
 
 # classList.add
 
-# Closures
-
-Function always remembers the lexical environment in which it is created (or declared).
-
-Environment consists of any local variables that were in-scope at the time the closure was created
-
-Closure gives you acces to outer functions' scope from inner function
-
 # Scope
 
 The area where we have valid access to variables or functions
@@ -57,21 +49,26 @@ Lexical Environemnt == [[scope]]
 
 # Hoisting
 
+Occurs during initialization phase of execution context
+
+1. Variables assigned 'undefined'
 1. Variables and function **declarations** are moved to the top of their scope before code execution
-2. Only var and functions are hoisted.
-3. Only **declartions** are hoisted
+1. Only var and functions are hoisted.
+1. Only **declartions** are hoisted.
 
 Explain:
 
+```
 var a = 1;
 
 function b() {
-a = 10;
-return;
-function a() {}
-}
+  a = 10;
+    return;
+    function a() {}
+  }
 b();
 console.log(a); // 1
+```
 
 1.  function a() {} will be hoisted. Same as var a = function () {}. Hence, in local scope, a is created.
 2.  local scope trumps global scope (or parent scope) in scope chain.
@@ -81,13 +78,36 @@ console.log(a); // 1
 
 1.  Creation (or initialization) phase
 
-- if global, Global object is determined
-- 'this' is determined
-- Variable environment
+Global
+
+- Create global object
+- Create an object called 'this' that gets assinged to global
 - Memory is allocated for variables and functions
-- Hoisting
+- Variable declarations assigned 'undefined'
+- Function declarations put into memory
+- var and function decalarations hoisted (or moved) to top of block
+
+Function
+
+- Create an object called 'this'
+- arguments object is created
+- Variable environment:
+  - Memory is allocated for variables and functions
+  - Arguments (parameters) are assigned values passed into function
+  - Variable declarations assigned 'undefined'
+  - Function declarations put into memory
+  - var and function decalarations hoisted (or moved) to top of block
 
 2.  Execution Phase
+
+- Variable Assignment
+  - If can't find variable will move up scope chain
+
+# Scope
+
+Scope of execution context
+
+Execution context is created when function is invoked and removed when 'return'ing from function (or popped off the stack)
 
 # Capturing and Bubbling
 

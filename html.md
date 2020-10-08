@@ -1,6 +1,6 @@
 # Why doctype?
 
-Browswer will render the page in Standard mode rather than Quirks mode.
+Browser will render the page in Standard mode rather than Quirks mode.
 
 # data- attributes
 

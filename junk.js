@@ -1,6 +1,4 @@
-var a = [1, 2, 3];
+const string = 'hello my name';
 
-a[10] = 99; // [ 1, 2, 3, <7 empty items>, 99 ]
-console.log(a);
-
-console.log(a[6]);
+const shit = string.replace(/[^\w]/g, '');
+console.log(shit);

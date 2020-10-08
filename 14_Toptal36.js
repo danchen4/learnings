@@ -102,8 +102,14 @@ girl();
 // undefined
 // Even thought var x = 20 is hoisted, only the DECLARATION is hoisted
 
-// 8  What will happen?
+// 8.  What will happen?
 var a = [1, 2, 3];
 
 a[10] = 99; // [ 1, 2, 3, <7 empty items>, 99 ]
 console.log(a[6]); // Undefined.
+
+
+// 9.  What will display?
+console.log(typeof typeof 1);
+
+// String.  typeof 1 is 'number', which is a string

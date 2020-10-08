@@ -10,6 +10,22 @@ var arr = ['biggy smalls', 'bif tannin', 'boo radley', 'hans gruber'];
 
 //1. Polyfill a reduce function
 
+Array.prototype.myReduce = (callback, initialValue = undefined) => {
+  if (!Array.isArray(this) || typeof callback !== 'function' || this.length === 0) return [];
+
+  let accumulator = initialValue;
+
+  for (let i = 0; i < this.length; i++) {
+    if (!accumulator) {
+      accumulator = callback(accumulator, this[i], i, this);
+    } else {
+      accumulator = this[i];
+    }
+  }
+
+  return accumulator;
+};
+
 // Answer
 // #region
 Array.prototype.myReduce = function (callback, initialValue) {
